@@ -12,7 +12,7 @@ IAM helps control access to cloud resources.
 
 \## Monitoring
 
-Monitoring helps cloud administrators track system health, cost patterns, and reliability risks.
+Monitoring gives administrators visibility into performance, availability, security events, and resource usage.
 
 
 
