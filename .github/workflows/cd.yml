@@ -14,7 +14,7 @@ jobs:
        - name: Checkout repository
          uses: actions/checkout@v4
        - name: COnfirm deployment tools
-cat > .github/workflows/cd.yml <<'EOF'
+
 name: CD - Deploy to kind Kubernetes
 on: 
   workflows: ["CI - Build and Publish Container"]
