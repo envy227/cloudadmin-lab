@@ -2,9 +2,9 @@ name: CI -Build and Publish Container
 on:
   push:
     branches: [ "main" ]
-pull_request:
+  pull_request:
   branches: [ "main", "develop" ]
-permissions:
+  permissions:
   contents: read
 
   packages: write
