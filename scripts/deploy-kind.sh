@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE="${1:-
-cat > scripts/deploy-kind.sh <<'EOF'
-#!/usr/bin/env bash
-set -euo pipefail
+IMAGE="${1:-ghcr.io/envy227/cloudadmin-lab:latest}"
+
 
 if [ -z "$IMAGE" ]; then
   echo "Usage: ./scripts/deploy-kind.sh <container-image>"
@@ -12,11 +10,11 @@ if [ -z "$IMAGE" ]; then
 
 fi
 
-kubectl apply -f k8s/namespace.yaml
-kubectl apply -f k8s/configmap.yaml
-kubectl apply -f k8s/secret.yaml
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/namespace.yaml   || true
+kubectl apply -f k8s/configmap.yaml   || true 
+kubectl apply -f k8s/secret.yaml      || true
+kubectl apply -f k8s/deployment.yaml  || true
+kubectl apply -f k8s/service.yaml     || true
 
 kubectl -n cicd-lab set image deployment/cloud-admin-web web="$IMAGE"
 kubectl -n cicd-lab rollout status deployment/cloud-admin-web --timeout=180s
